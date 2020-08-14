@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import data from './data'
 
 function App() {
 
@@ -37,81 +38,30 @@ function App() {
 
         </ul>
       </aside>
-      <main class="main">
-        <div class="content">
-          <ul class="products">
-            <li>
-              <div class="product">
-                <img class="product-image" src="/images/d1.jpg" alt="product" />
-                <div class="product-name">
-                  <a href="product.html">Slim Shirt</a>
-                </div>
-                <div class="product-brand">Nike</div>
-                <div class="product-price">$60</div>
-                <div class="product-rating">4.5 Stars (10 Reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div class="product">
-                <img class="product-image" src="/images/d1.jpg" alt="product" />
-                <div class="product-name">
-                  <a href="product.html">Slim Shirt</a>
-                </div>
-                <div class="product-brand">Nike</div>
-                <div class="product-price">$60</div>
-                <div class="product-rating">4.5 Stars (10 Reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div class="product">
-                <img class="product-image" src="/images/d1.jpg" alt="product" />
-                <div class="product-name">
-                  <a href="product.html">Slim Shirt</a>
-                </div>
-                <div class="product-brand">Nike</div>
-                <div class="product-price">$60</div>
-                <div class="product-rating">4.5 Stars (10 Reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div class="product">
-                <img class="product-image" src="/images/d1.jpg" alt="product" />
-                <div class="product-name">
-                  <a href="product.html">Slim Shirt</a>
-                </div>
-                <div class="product-brand">Nike</div>
-                <div class="product-price">$60</div>
-                <div class="product-rating">4.5 Stars (10 Reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div class="product">
-                <img class="product-image" src="/images/d1.jpg" alt="product" />
-                <div class="product-name">
-                  <a href="product.html">Slim Shirt</a>
-                </div>
-                <div class="product-brand">Nike</div>
-                <div class="product-price">$60</div>
-                <div class="product-rating">4.5 Stars (10 Reviews)</div>
-              </div>
-            </li>
-            <li>
-              <div class="product">
-                <img class="product-image" src="/images/d1.jpg" alt="product" />
-                <div class="product-name">
-                  <a href="product.html">Slim Shirt</a>
-                </div>
-                <div class="product-brand">Nike</div>
-                <div class="product-price">$60</div>
-                <div class="product-rating">4.5 Stars (10 Reviews)</div>
-              </div>
-            </li>
+      <main className="main">
+        <div className="products">
+          {
+            data.products.map(product =>
+              <li>
+                <div className="product">
+                  <a href={'/product/' + product._id}>
+                    <img className="product-image" src={product.image} alt="product" />
 
-          </ul>
+                  </a>
+                  <div className="product-name">
+                    <a href={'/product/' + product._id}>{product.name}</a>
+                  </div>
+                  <div className="product-brand">{product.brand}</div>
+                  <div className="product-price">${product.price}</div>
+                  <div className="product-rating">{product.rating} Stars ({product.numReiews} Reviews)</div>
+                  </div>
+            </li>)
+            }
+            
         </div>
 
       </main>
-      <footer class="footer">
+      <footer className="footer">
         All right reserved.
     </footer>
     </div>
